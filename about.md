@@ -1,34 +1,8 @@
 ---
 layout: page
 title: About
-description: 简介
-keywords: kong,
-comments: true
-menu: 关于
-permalink: /about/
 ---
 
-莫使金樽空对月，举杯幸会有缘人
+**Not Pure Poole** is a simple, beautiful, and powerful Jekyll theme for blogs. It is built on [Poole](https://github.com/poole/poole) and [Pure](https://purecss.io/).
 
-## 联系
-
-<ul>
-{% for website in site.data.social %}
-<li>{{website.sitename }}：<a href="{{ website.url }}" target="_blank">@{{ website.name }}</a></li>
-{% endfor %}
-{% if site.url contains 'mazhuang.org' %}
-
-{% endif %}
-</ul>
-
-
-## Skill Keywords
-
-{% for skill in site.data.skills %}
-### {{ skill.name }}
-<div class="btn-inline">
-{% for keyword in skill.keywords %}
-<button class="btn btn-outline" type="button">{{ keyword }}</button>
-{% endfor %}
-</div>
-{% endfor %}
+For more information about Not Pure Poole, please browse the [README](https://github.com/vszhub/not-pure-poole) file.

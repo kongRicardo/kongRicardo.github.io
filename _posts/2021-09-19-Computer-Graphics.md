@@ -12,5 +12,5 @@ toc:  true
     <h1>Computer Graphics Work</h1>
     <ul>
         <li><a href = "../../../../start.html">实验0</a></li>
-        <li><a href = "../../../../../lab2.html">实验一</a></li>
+        <li><a href = "../../../../lab2.html">实验一</a></li>
 

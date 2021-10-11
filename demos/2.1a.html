@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Lab2</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+	attribute vec4 vPosition;
+	void main(){
+		gl_Position = vPosition;
+	}
+	</script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+	uniform vec4 u_color;
+	void main(){
+		gl_FragColor = u_color;
+	}
+	</script>
+
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
+
+    <script type="text/javascript" src="../js/ch02/gasket-triangles.js"></script>
+    <style type="text/css">
+		body{
+			 text-align:center
+		}
+	</style>
+</head>
+
+<body>
+
+	请输入递归次数：<input type="text" id="mvalue" placeholder="请输入值"/>
+	<input type="button" value="确定" onclick="main()"/>
+	<br><br>
+    <canvas id="gl-canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas>
+</body>
+
+</html>

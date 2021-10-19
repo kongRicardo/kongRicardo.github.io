@@ -14,4 +14,5 @@ toc:  true
         <li><a href = "../../../../start.html">实验0</a></li>
         <li><a href = "../../../../Lab2.html">实验一</a></li>
         <li><a href = "../../../../lab02.html">实验二</a></li>
+        <li><a href = "../../../../lab3.html">实验三</a></li>
 

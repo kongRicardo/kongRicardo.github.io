@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Lab3.2</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+	attribute vec4 vPosition;
+	uniform float theta;
+
+	void main()
+	{
+		float u = cos( theta );
+		float v = sin( theta );
+
+		gl_Position.x = vPosition.x * u - vPosition.y * v;
+		gl_Position.y = vPosition.x * v + vPosition.y * u;
+		gl_Position.z = 0.0;
+		gl_Position.w = 1.0;
+	}
+	</script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+	precision mediump float;
+	uniform vec4 u_color;
+	void main(){
+		gl_FragColor = u_color;
+	}
+	</script>
+
+    <script type="text/javascript" src="../js/common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../js/common/initShaders.js"></script>
+    <script type="text/javascript" src="../js/common/gl-matrix-min.js"></script>
+
+    <script type="text/javascript" src="../js/ch03/myShard.js"></script>
+    <style type="text/css">
+		body{
+			 text-align:center
+		}
+	</style>
+</head>
+
+<body>
+	<h2>think different</h2>
+    <canvas id="canvas" width="512" height="512">你的浏览器不支持HTML5 canvas元素</canvas><br>
+    <button id="direction" onclick="changeDir()">换个转动方向</button><br>
+    Speed 0<input type="range" id="speedcon" min="0" max="100" value="50" step="10"> 100
+</body>
+
+</html>

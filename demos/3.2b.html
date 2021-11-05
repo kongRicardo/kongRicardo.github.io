@@ -7,16 +7,24 @@
     <script id="vertex-shader" type="x-shader/x-vertex">
 	attribute vec4 vPosition;
 	uniform float theta;
+	uniform mat4 mat;
 
 	void main()
 	{
+		
 		float u = cos( theta );
 		float v = sin( theta );
 
-		gl_Position.x = vPosition.x * u - vPosition.y * v;
-		gl_Position.y = vPosition.x * v + vPosition.y * u;
-		gl_Position.z = 0.0;
-		gl_Position.w = 1.0;
+	
+
+
+		mat4 rz = mat4(  u,  -v,  0.0,  0.0,
+						 u,  v,  0.0,  0.0,
+						 0.0,  0.0,  1.0,  0.0,
+						 0.0,  0.0,  0.0,  1.0
+						 );
+	gl_Position = rz*vPosition;
+		
 	}
 	</script>
 

@@ -9,6 +9,13 @@ var theta = 0.0;
 var thetaLoc;
 var speed = 50;
 
+var Tx = 0;
+var Ty = 0;
+var Tz = 1;
+var step = 0.06;
+let status = true;
+var colorUniformLocation;
+
 var vertices = [
 		-0.5, 0.70, 
 		 -0.5, -0.70, 
@@ -63,14 +70,15 @@ window.onload = function init(){
 	gl.enableVertexAttribArray( vPosition );
 
 	//look up uniform locations
-	var colorUniformLocation = gl.getUniformLocation(program, "u_color");
+	colorUniformLocation = gl.getUniformLocation(program, "u_color");
 	thetaLoc = gl.getUniformLocation( program, "theta" );
+	var matLocation = gl.getUniformLocation(program, "mat");
 
 	document.getElementById( "speedcon" ).onchange = function( event ){
 		speed = 100 - event.target.value;
 	}
-	//inside_c
-	inside_c(colorUniformLocation);
+	//inside_c colorUniformLocation,matLocation
+	inside_c();
 	
 }
 
@@ -315,10 +323,35 @@ function inside() {
 
 }
 
-function inside_c(colorUniformLocation) {
+function inside_c() {
 	
 	gl.clear( gl.COLOR_BUFFER_BIT );
 
+	 // // 定义最大所放量为 2 倍
+  // if (Tx >= 1.5) {
+  //   status = false
+  // }
+  // if (Tx <= 0) {
+  //   status = true
+  // }
+  // if (status) {
+  //   Tx += step;
+  //   Ty += step;
+  // } else {
+  //   Tx -= step;
+  //   Ty -= step;
+  // }
+
+  // // 初始化一个旋转矩阵。
+  // const mat = new Float32Array([
+  //   Tx,  0.0, 0.0, 0.0,
+  //   0.0,  Ty, 0.0, 0.0,
+  //   0.0, 0.0,  Tz, 0.0,
+  //   0.0, 0.0, 0.0, 1.0,
+  // ]);
+
+  // // 将旋转矩阵赋值给着色器
+  // gl.uniformMatrix4fv(matLocation,false,mat);
 	// set uniform values
 	theta += 0.1 * direction;
 	if( theta > 2 * Math.PI )
@@ -412,5 +445,5 @@ function inside_c(colorUniformLocation) {
 	gl.uniform4f(colorUniformLocation, r2, g2, b2, 1);
 	gl.drawArrays(gl.TRIANGLE_FAN, 856, 102);
 	
-	setTimeout( function (){ requestAnimFrame( inside_c(colorUniformLocation) ); }, speed );
+	setTimeout( function (){ requestAnimFrame( inside_c ); }, speed );
 }
